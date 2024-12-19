@@ -29,3 +29,15 @@ This project demonstrates the deployment of a Flask backend application on GCP u
    docker build -t dobhalapp:latest .
    docker tag dobhalapp:latest gcr.io/<your-project-id>/dobhalapp:latest
    docker push gcr.io/<your-project-id>/dobhalapp:latest
+
+## Script Deployment
+
+1. **Terraform Configuration:**
+
+-Use Terraform to create:
+
+-VPC with public and private subnets
+
+-Compute Engine instance running the containerized Flask app
+
+-Firewall rules for the application port
