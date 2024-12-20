@@ -30,14 +30,29 @@ This project demonstrates the deployment of a Flask backend application on GCP u
    docker tag dobhalapp:latest gcr.io/<your-project-id>/dobhalapp:latest
    docker push gcr.io/<your-project-id>/dobhalapp:latest
 
+
 ## Script Deployment
 
 1. **Terraform Configuration:**
 
--Use Terraform to create:
+   Use Terraform to create:
+   - VPC with public and private subnets.
+   - Compute Engine instance running the containerized Flask app.
+   - Firewall rules for the application port.
 
--VPC with public and private subnets
 
--Compute Engine instance running the containerized Flask app
+3. **Terraform Commands:**
+ ```bash
+ terraform init
+ terraform plan
+ terraform apply
+```
+3. **Run the Application:**
 
--Firewall rules for the application port
+   - Ensure the Compute Engine instance is running and accessible.
+   - Use the `gcloud compute ssh` command to verify the container is running:
+     ```bash
+     gcloud compute ssh <instance-name> --zone <zone>
+     docker ps
+     ```
+
